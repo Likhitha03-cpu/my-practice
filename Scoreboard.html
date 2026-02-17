@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+    <h2 id="score">Score: 0/0</h2>
+    <h2 id="over">Score Line: </h2>
+    
+
+</head>
+<body>
+     <button onclick="Dot()">Dot</button>
+    <button onclick="One()">1</button>
+    <button onclick="Two()">2</button>
+    <button onclick="Three()">3</button>
+    <button onclick="Four()">4</button>
+    <button onclick="Five()">5</button>
+    <button onclick="Six()">6</button>
+    <button onclick="W()">W</button>
+    <button onclick="Wide()">Wide</button>
+    <button onclick="NoBall()">No Ball</button>
+    <script>
+        var c="";
+        var a=0;
+        var b=0;
+        function Dot(){
+            c=c+" . ";
+            a=a+0;
+             Score();
+        }
+        function One(){
+            c=c+" 1 ";
+            a=a+1;
+             Score();
+        }
+        function Two(){
+            c=c+" 2 ";
+            a=a+2;
+             Score();
+        }
+        function Three(){
+            c=c+" 3 ";
+            a=a+3;
+             Score();
+        }
+        function Four(){
+            c=c+" 4 ";
+            a=a+4;
+             Score();
+        }
+        function Five(){
+            c=c+" 5 ";
+            a=a+5;
+             Score();
+        }
+        function Six(){
+            c=c+" 6 ";
+            a=a+6;
+             Score();
+        }
+        function W(){
+            
+            c=c+" W ";
+            b=b+1;
+             Score();
+        }
+        function Wide(){
+            c=c+" 1wd ";
+            a=a+1
+             Score();
+        }
+        function NoBall(){
+            c=c+" 1nb ";
+            a=a+1
+        
+         Score();
+        }
+        function Score(){
+
+            document.getElementById("score").innerHTML="Score: "+a+"/"+b;
+            document.getElementById("over").innerHTML="Score Line: "+c;
+           
+        }
+    </script>
+</body>
+</html>
