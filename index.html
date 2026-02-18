@@ -1,88 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-   
-    <h2 id="score">Score: 0/0</h2>
-    <h2 id="over">Score Line: </h2>
-    
+    <title>Cricket Scoreboard</title>
 
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial;
+            background-color: green;
+            color: white;
+        }
+        #d1{  background-color: #111;
+            padding: 15px;
+            margin: 0;}
+
+        .box {
+            background-color: black;
+            padding: 20px;
+            margin: 30px auto;
+            width: 300px;
+            border-radius: 10px;
+        }
+
+        #score {
+            font-size: 30px;
+            color: lime;
+        }
+
+        button {
+            padding: 8px 12px;
+            margin: 5px;
+            font-size: 16px;
+          
+            border-radius: 5px;
+          
+        }
+
+        .run { background-color: blue; color: white; }
+        .wicket { background-color: red; color: white; }
+        .extra { background-color: orange; color: white; }
+    </style>
 </head>
-<body>
-     <button onclick="Dot()">Dot</button>
-    <button onclick="One()">1</button>
-    <button onclick="Two()">2</button>
-    <button onclick="Three()">3</button>
-    <button onclick="Four()">4</button>
-    <button onclick="Five()">5</button>
-    <button onclick="Six()">6</button>
-    <button onclick="W()">W</button>
-    <button onclick="Wide()">Wide</button>
-    <button onclick="NoBall()">No Ball</button>
-    <script>
-        var c="";
-        var a=0;
-        var b=0;
-        function Dot(){
-            c=c+" . ";
-            a=a+0;
-             Score();
-        }
-        function One(){
-            c=c+" 1 ";
-            a=a+1;
-             Score();
-        }
-        function Two(){
-            c=c+" 2 ";
-            a=a+2;
-             Score();
-        }
-        function Three(){
-            c=c+" 3 ";
-            a=a+3;
-             Score();
-        }
-        function Four(){
-            c=c+" 4 ";
-            a=a+4;
-             Score();
-        }
-        function Five(){
-            c=c+" 5 ";
-            a=a+5;
-             Score();
-        }
-        function Six(){
-            c=c+" 6 ";
-            a=a+6;
-             Score();
-        }
-        function W(){
-            
-            c=c+" W ";
-            b=b+1;
-             Score();
-        }
-        function Wide(){
-            c=c+" 1wd ";
-            a=a+1
-             Score();
-        }
-        function NoBall(){
-            c=c+" 1nb ";
-            a=a+1
-        
-         Score();
-        }
-        function Score(){
 
-            document.getElementById("score").innerHTML="Score: "+a+"/"+b;
-            document.getElementById("over").innerHTML="Score Line: "+c;
-           
+<body>
+
+    <h1 id="d1">🏏 Cricket Scoreboard</h1>
+
+    <div class="box">
+        <h2 id="score">0 / 0</h2>
+        <p id="line"></p>
+    </div>
+
+    <button class="run" onclick="add(0)">Dot</button>
+    <button class="run" onclick="add(1)">1</button>
+    <button class="run" onclick="add(2)">2</button>
+    <button class="run" onclick="add(4)">4</button>
+    <button class="run" onclick="add(6)">6</button>
+    <button class="wicket" onclick="wicket()">W</button>
+    <button class="extra" onclick="extra()">Wide</button>
+
+    <script>
+        var runs = 0;
+        var wickets = 0;
+        var text= "";
+
+        function add(x) {
+            runs += x;
+            text += " " + (x == 0 ? "." : x);
+            update();
+        }
+
+        function wicket() {
+            wickets++;
+            text += " W";
+            update();
+        }
+
+        function extra() {
+            runs++;
+            text += " wd";
+            update();
+        }
+
+        function update() {
+            document.getElementById("score").innerHTML = runs + " / " + wickets;
+            document.getElementById("line").innerHTML = text;
         }
     </script>
+
 </body>
 </html>
